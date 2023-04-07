@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class RegistrationSelectors(Enum):
+class Selectors(Enum):
     EmailField = '[name="email"]'
     PasswordField = '[name="password"]'
     ConfirmPasswordField = '[name="confirmedPassword"]'
@@ -29,5 +29,3 @@ class RegistrationSelectors(Enum):
     TermsAndConditionErrorMessage = '#__next > div.sc-fcefa2f6-0.bMhYop > div.sc-fcefa2f6-1.btHyvh > ' \
                                     'div.sc-89c5af6-0.gkRKCk > form > label '
 
-
-print(RegistrationSelectors.TermsAndConditionErrorMessage.value)
