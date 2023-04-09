@@ -9,8 +9,9 @@ class Selectors(Enum):
     TermsAndConditionsCheckbox = '[name="acceptedTC"]'
     RegisterButton = '#__next > div.sc-fcefa2f6-0.bMhYop > div.sc-fcefa2f6-1.btHyvh > div.sc-89c5af6-0.gkRKCk > form ' \
                      '> div.sc-23ae1b82-0.jZkxht > button '
-    TermsAndConditionLink = '#__next > div.sc-fcefa2f6-0.bMhYop > div.sc-fcefa2f6-1.btHyvh > div.sc-89c5af6-0.gkRKCk ' \
-                            '> form > label > div > a '
+    TermsAndConditionLink = '#__next > div.sc-fcefa2f6-0.bMhYop > div.sc-fcefa2f6-1.btHyvh > div.sc-89c5af6-1.zkIIA' \
+                            ' > div.sc-254fe96a-0.fdNpGB > div > div > div.sc-a9b05490-1.edeBmf ' \
+                            '> form > label > div > a'
     LoginLink = '#__next > div.sc-fcefa2f6-0.bMhYop > div.sc-fcefa2f6-1.btHyvh > div.sc-89c5af6-0.gkRKCk > ' \
                 'div.sc-9bb2e39f-0.jTCvWq > a '
     ShowPasswordButton = '#__next > div.sc-fcefa2f6-0.bMhYop > div.sc-fcefa2f6-1.btHyvh > div.sc-89c5af6-0.gkRKCk > ' \
