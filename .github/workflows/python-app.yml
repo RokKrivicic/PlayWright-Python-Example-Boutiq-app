@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ "dev" ]
 
+env:
+  BASE_URL: ${{vars.BASE_URL}}
+
 permissions:
   contents: read
 
