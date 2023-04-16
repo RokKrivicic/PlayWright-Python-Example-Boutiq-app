@@ -31,5 +31,5 @@ jobs:
     - name: Run tests
       run: |
         pipenv install
-        pipenv shell playwright install
+        pipenv run playwright install
         pipenv run test
