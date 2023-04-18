@@ -2,7 +2,7 @@ import os
 from playwright.sync_api import Locator, Page, Optional, Response
 from pageObject.registration.SelectorsEnum import Selectors
 
-base_url = os.environ['BASE_URL']
+base_url = os.environ['BASE_URL'] + "/register"
 
 
 class Registration(Page):
