@@ -9,6 +9,8 @@ on:
 
 env:
   BASE_URL: ${{vars.BASE_URL}}
+  QASE_ACCESS_TOKEN: ${{secrets.QASE_ACCESS_TOKEN}}
+  QASE_PROJECT_CODE: ${{secrets.QASE_PROJECT_CODE}}
 
 permissions:
   contents: read
@@ -26,8 +28,11 @@ jobs:
         python-version: "3.9"
     - name: Install pipenv
       run: pip install pipenv
-    - name: Run tests
+    - name: Install dependencies
       run: |
         pipenv install
         pipenv run playwright install
-        pipenv run test
+    - name: Run test
+      run: pipenv run test
+    - name: Send report
+      run : pipenv run qase-report

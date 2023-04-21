@@ -1,4 +1,5 @@
 import pytest
+from qaseio.pytest import qase
 from playwright.sync_api import Page, expect
 from pageObject.registration.Registration import Registration
 from pageObject.registration.SelectorsEnum import Selectors
@@ -11,6 +12,8 @@ def browser_context_args(browser_context_args, playwright):
     return {**playwright.devices["iPhone 13"]}
 
 
+@qase.id(1)
+@qase.title("Wrong input for email field")
 @pytest.mark.parametrize("email_value,error_message", INVALID_EMAIL_COMBINATIONS)
 def test_invalid_email(page: Page, email_value, error_message) -> None:
     registration = Registration(page)

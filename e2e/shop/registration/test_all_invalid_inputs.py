@@ -4,6 +4,7 @@ from pageObject.registration.Registration import Registration
 from pageObject.registration.SelectorsEnum import Selectors
 from pageObject.registration.WrongInputValuesEnum import WrongInputValues
 from pageObject.registration.ErrorMessageEnum import ErrorMessage
+from qaseio.pytest import qase
 
 
 @pytest.fixture(scope="session")
@@ -11,6 +12,8 @@ def browser_context_args(browser_context_args, playwright):
     return {**playwright.devices["iPhone 13"]}
 
 
+@qase.id(6)
+@qase.title("All inputs wrongly inserted")
 def test_all_invalid_inputs(page: Page) -> None:
     registration = Registration(page)
     registration.navigate_to_registration()
