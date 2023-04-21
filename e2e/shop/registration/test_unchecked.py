@@ -4,6 +4,7 @@ from pageObject.registration.Registration import Registration
 from pageObject.registration.SelectorsEnum import Selectors
 from pageObject.registration.ErrorMessageEnum import ErrorMessage
 from testData.DataEnum import Data
+from qaseio.pytest import qase
 
 
 @pytest.fixture(scope="session")
@@ -11,6 +12,8 @@ def browser_context_args(browser_context_args, playwright):
     return {**playwright.devices["iPhone 13"]}
 
 
+@qase.id(5)
+@qase.title("Checkbox unchecked")
 def test_unchecked(page: Page) -> None:
     registration = Registration(page)
     registration.navigate_to_registration()
