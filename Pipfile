@@ -8,6 +8,7 @@ pytest-playwright = "*"
 pytest = "*"
 playwright = "*"
 qase-pytest = "*"
+pytest-html = "*"
 
 [dev-packages]
 
@@ -19,5 +20,4 @@ test = "pytest"
 create-test = "playwright codegen"
 headed = "pytest --headed"
 qase-report = "pytest e2e/shop/registration/qase --qase-mode=testops --qase-to-api-token=$QASE_ACCESS_TOKEN --qase-to-project=$QASE_PROJECT_CODE"
-
-
+create-report = "pytest --html=report.html --self-contained-html"
