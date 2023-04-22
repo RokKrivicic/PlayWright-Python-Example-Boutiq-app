@@ -2,7 +2,6 @@ import pytest
 import re
 from playwright.sync_api import Page, expect
 from pageObject.registration.Registration import Registration
-from pageObject.registration.SelectorsEnum import Selectors
 from qaseio.pytest import qase
 
 
@@ -11,11 +10,14 @@ def browser_context_args(browser_context_args, playwright):
     return {**playwright.devices["iPhone 13"]}
 
 
-@qase.id(7)
-@qase.title("Login link redirects to Login page")
-def test_login_link(page: Page) -> None:
+@qase.id(8)
+@qase.title("Terms and condition link redirects to Terms and condition page")
+def test_terms_and_conditions_link(page: Page) -> None:
     registration = Registration(page)
     registration.navigate_to_registration()
-    registration.click_element(Selectors.LoginLink)
-    expect(page).to_have_url(re.compile('.*login'))
+    with page.expect_popup() as tab:
+        registration.terms_and_conditions_link.click()
+    new_page = tab.value
+    expect(new_page).to_have_url(re.compile('.*terms-conditions'))
+
 

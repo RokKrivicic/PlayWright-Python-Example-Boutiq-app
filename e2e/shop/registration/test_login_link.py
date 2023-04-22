@@ -10,14 +10,10 @@ def browser_context_args(browser_context_args, playwright):
     return {**playwright.devices["iPhone 13"]}
 
 
-@qase.id(8)
-@qase.title("Terms and condition link redirects to Terms and condition page")
-def test_terms_and_conditions_link(page: Page) -> None:
+@qase.id(7)
+@qase.title("Login link redirects to Login page")
+def test_login_link(page: Page) -> None:
     registration = Registration(page)
     registration.navigate_to_registration()
-    with page.expect_popup() as tab:
-        page.get_by_role("link", name="terms and conditions").click()
-    new_page = tab.value
-    expect(new_page).to_have_url(re.compile('.*terms-conditions'))
-
-
+    registration.login_link.click()
+    expect(page).to_have_url(re.compile('.*login'))
