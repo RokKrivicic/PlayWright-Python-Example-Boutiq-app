@@ -33,5 +33,10 @@ jobs:
         pipenv install
         pipenv run playwright install
     - name: Run test and send report to qase
-      run: pipenv run qase-report
-
+      run: pipenv run create-all-reports
+    - name: Archive results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: report.html
+        retention-days: 5
