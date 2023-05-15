@@ -32,6 +32,8 @@ jobs:
       run: |
         pipenv install
         pipenv run playwright install
+    - name: Format the code
+      run: pipenv run format-code
     - name: Run test and send report to qase
       run: pipenv run create-all-reports
     - name: Archive results
