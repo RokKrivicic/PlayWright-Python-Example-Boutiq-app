@@ -12,5 +12,5 @@ def test_login_link(page: Page) -> None:
     """Test redirection of the login link"""
     registration = Registration(page)
     registration.navigate_to_registration()
-    registration.login_link.click()
+    registration.link["login"].click()
     expect(page).to_have_url(re.compile(".*login"))

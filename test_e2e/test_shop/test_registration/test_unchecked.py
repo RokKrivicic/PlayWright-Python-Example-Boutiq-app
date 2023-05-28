@@ -20,8 +20,8 @@ def test_unchecked(page: Page) -> None:
         valid_user["date_of_birth"],
     )
     # pylint: enable=R0801
-    registration.register_button.click()
-    expect(registration.tac_notifications).to_be_visible()
-    expect(registration.tac_notifications).to_have_text(
+    registration.button["register"].click()
+    expect(registration.notification["tac"]).to_be_visible()
+    expect(registration.notification["tac"]).to_have_text(
         registration.terms_and_conditions_error_message
     )

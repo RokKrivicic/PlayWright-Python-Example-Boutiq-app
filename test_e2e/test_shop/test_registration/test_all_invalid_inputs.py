@@ -18,22 +18,22 @@ def test_all_invalid_inputs(page: Page) -> None:
         invalid_user["password_with-only_upper_cased_letters"],
         invalid_user["invalid_date_of_birth"],
     )
-    registration.register_button.click()
-    expect(registration.email_notification).to_be_visible()
-    expect(registration.password_notification).to_be_visible()
-    expect(registration.conf_pass_notification).to_be_visible()
-    expect(registration.date_notification).to_be_visible()
-    expect(registration.tac_notifications).to_be_visible()
-    expect(registration.email_notification).to_have_text(
+    registration.button["register"].click()
+    expect(registration.notification["email"]).to_be_visible()
+    expect(registration.notification["password"]).to_be_visible()
+    expect(registration.notification["confirm_password"]).to_be_visible()
+    expect(registration.notification["date"]).to_be_visible()
+    expect(registration.notification["tac"]).to_be_visible()
+    expect(registration.notification["email"]).to_have_text(
         error_message["invalid_email_address"]
     )
-    expect(registration.password_notification).to_have_text(
+    expect(registration.notification["password"]).to_have_text(
         error_message["password_to_short"]
     )
-    expect(registration.conf_pass_notification).to_have_text(
+    expect(registration.notification["confirm_password"]).to_have_text(
         error_message["password_do_not_match"]
     )
-    expect(registration.date_notification).to_have_text(error_message["young_user"])
-    expect(registration.tac_notifications).to_have_text(
+    expect(registration.notification["date"]).to_have_text(error_message["young_user"])
+    expect(registration.notification["tac"]).to_have_text(
         error_message["terms_and_conditions_must_be_accepted"]
     )

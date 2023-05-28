@@ -17,7 +17,7 @@ from page_object.registration.data import valid_user
     "confirm_password_value,error_message", INVALID_CONFIRM_PASSWORD_COMBINATIONS
 )
 def test_invalid_confirm_password(
-        page: Page, confirm_password_value, error_message
+    page: Page, confirm_password_value, error_message
 ) -> None:
     """Tests that validate correct error messages"""
     # pylint: disable=R0801
@@ -31,6 +31,6 @@ def test_invalid_confirm_password(
     )
     # pylint: enable = R0801
     registration.accept_terms_and_condition()
-    registration.register_button.click()
-    expect(registration.conf_pass_notification).to_be_visible()
-    expect(registration.conf_pass_notification).to_have_text(error_message)
+    registration.button["register"].click()
+    expect(registration.notification["confirm_password"]).to_be_visible()
+    expect(registration.notification["confirm_password"]).to_have_text(error_message)

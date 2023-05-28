@@ -25,6 +25,6 @@ def test_invalid_date_of_birth(page: Page, date_of_birth_value, error_message) -
     )
     # pylint: enable=R0801
     registration.accept_terms_and_condition()
-    registration.register_button.click()
-    expect(registration.date_notification).to_be_visible()
-    expect(registration.date_notification).to_have_text(error_message)
+    registration.button["register"].click()
+    expect(registration.notification["date"]).to_be_visible()
+    expect(registration.notification["date"]).to_have_text(error_message)

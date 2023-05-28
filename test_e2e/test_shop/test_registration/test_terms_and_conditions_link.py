@@ -13,6 +13,6 @@ def test_terms_and_conditions_link(page: Page) -> None:
     registration = Registration(page)
     registration.navigate_to_registration()
     with page.expect_popup() as tab:
-        registration.terms_and_conditions_link.click()
+        registration.link["terms_and_conditions"].click()
     new_page = tab.value
     expect(new_page).to_have_url(re.compile(".*terms-conditions"))

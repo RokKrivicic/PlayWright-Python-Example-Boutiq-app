@@ -24,11 +24,9 @@ error_message = {
     "enter_an_email_address": "Enter an email address",
     "empty_password": '"password" is not allowed to be empty',
     "password_to_short": '"password" should be at least 8 characters long',
-    "password_without_upper_cased_letter":
-        '"password" should contain at least 1 upper-cased letter',
+    "password_without_upper_cased_letter": '"password" should contain at least 1 upper-cased letter',
     "password_to_long": '"password" should not be longer than 20 characters',
-    "password_without_lower_cased_letter":
-        '"password" should contain at least 1 lower-cased letter',
+    "password_without_lower_cased_letter": '"password" should contain at least 1 lower-cased letter',
     "password_without_number": '"password" should contain at least 1 number',
     "password_do_not_match": "Passwords do not match",
     "invalid_date": "Invalid date",

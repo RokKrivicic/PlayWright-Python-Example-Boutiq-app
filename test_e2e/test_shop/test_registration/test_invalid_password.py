@@ -23,6 +23,6 @@ def test_invalid_password(page: Page, password_value, error_message) -> None:
         valid_user["date_of_birth"],
     )
     registration.accept_terms_and_condition()
-    registration.register_button.click()
-    expect(registration.password_notification).to_be_visible()
-    expect(registration.password_notification).to_have_text(error_message)
+    registration.button["register"].click()
+    expect(registration.notification["password"]).to_be_visible()
+    expect(registration.notification["password"]).to_have_text(error_message)

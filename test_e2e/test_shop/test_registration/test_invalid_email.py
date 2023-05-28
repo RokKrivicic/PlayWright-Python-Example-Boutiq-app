@@ -23,6 +23,6 @@ def test_invalid_email(page: Page, email_value, error_message) -> None:
         valid_user["date_of_birth"],
     )
     registration.accept_terms_and_condition()
-    registration.register_button.click()
-    expect(registration.email_notification).to_be_visible()
-    expect(registration.email_notification).to_have_text(error_message)
+    registration.button["register"].click()
+    expect(registration.notification["email"]).to_be_visible()
+    expect(registration.notification["email"]).to_have_text(error_message)
