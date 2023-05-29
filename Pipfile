@@ -11,6 +11,7 @@ qase-pytest = "*"
 pytest-html = "*"
 black = "*"
 pylint = "*"
+pytest-xdist = "*"
 
 [dev-packages]
 
@@ -23,6 +24,6 @@ create-test = "playwright codegen"
 headed = "pytest --headed"
 qase-report = "pytest --qase-mode=testops --qase-to-api-token=$QASE_ACCESS_TOKEN --qase-to-project=$QASE_PROJECT_CODE"
 create-report = "pytest --html=report.html --self-contained-html"
-create-all-reports = "pytest --qase-mode=testops --qase-to-api-token=$QASE_ACCESS_TOKEN --qase-to-project=$QASE_PROJECT_CODE --html=report.html --self-contained-html"
+create-all-reports = "pytest --numprocesses auto --qase-mode=testops --qase-to-api-token=$QASE_ACCESS_TOKEN --qase-to-project=$QASE_PROJECT_CODE --html=report.html --self-contained-html --browser chromium --browser webkit"
 format ="black page_object test_e2e"
 lint = "pylint page_object test_e2e"

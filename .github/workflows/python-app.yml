@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies
       run: |
         pipenv install
-        pipenv run playwright install
+        pipenv run playwright install --with-deps
     - name: Lint the code
       run: pipenv run lint
     - name: Run test and send report to qase
