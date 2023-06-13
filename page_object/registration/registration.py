@@ -48,6 +48,9 @@ class Registration:
             ).nth(0),
             "date": page.locator("form > div.sc-c1509d-0.jGkKKJ > label").nth(0),
             "tac": page.locator("form > label").nth(0),
+            "successful_registration": page.get_by_text(
+                "Thank you for your registration!"
+            ).nth(0),
         }
 
         self.terms_and_conditions_error_message = (
