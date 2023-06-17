@@ -1,10 +1,10 @@
 # Automated Playwright tests
 
-This repository contains end-to-end test of the Boutiq app. For the tests python with Playwright is being used.
+This repository contains end-to-end test of the Boutiq app. For the tests' python with Playwright is being used.
 
 ## Set up the project
 
-Clone the repository and run the follosing commands: 
+Clone the repository and run the following commands: 
 
 - `pipenv install` 
 - `pipenv run playwright install`
