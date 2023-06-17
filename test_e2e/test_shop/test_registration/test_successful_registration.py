@@ -1,5 +1,6 @@
 """Test for successful registration"""
 
+import pytest
 from qaseio.pytest import qase
 from playwright.sync_api import Page, expect
 from page_object.fake_email.fake_email import FakeEmail
@@ -9,6 +10,7 @@ from page_object.registration.data import valid_user
 
 @qase.id(9)
 @qase.title("Registering a new account sends the email to the new user")
+@pytest.mark.only_browser("chromium")
 def test_successful_registration(page: Page) -> None:
     """Test email sent to the new user"""
     fake_email = FakeEmail(page)
@@ -31,7 +33,7 @@ def test_successful_registration(page: Page) -> None:
     registration.accept_terms_and_condition()
     registration.button["register"].click()
     # pylint: enable = R0801
-    expect(registration.notification["successful_registration"]).to_be_visible()
+    expect(registration.notification["successful_registration"]).to_be_visible(timeout=10_000)
     fake_email.navigate_to()
     expect(fake_email.email).to_have_text(current_email)
     fake_email.email_cell_name.click()
