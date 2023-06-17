@@ -1,10 +1,12 @@
 """Page object for fake email page"""
 
+from datetime import datetime
 from playwright.sync_api import Optional, Response
 
 EMAIL_URL = "https://www.fakemail.net"
 EMAIL_NAME = "Welcome to Boutiq!"
-TEST_STRING = "test"
+YEAR = "2023"
+DATE = datetime.now().strftime("%m%d%H%M%S")
 
 
 class FakeEmail:
@@ -35,7 +37,7 @@ class FakeEmail:
         """Method that modifies the current email"""
         self.edit_button.click()
         self.email_input.click()
-        self.email_input.type(TEST_STRING)
+        self.email_input.type(YEAR)
         self.email_input.click()
-        self.email_input.type(TEST_STRING)
+        self.email_input.type(DATE)
         self.confirm_button.click()
