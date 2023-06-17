@@ -5,7 +5,6 @@ from qaseio.pytest import qase
 from playwright.sync_api import Page, expect
 from page_object.registration.registration import Registration
 
-
 @qase.id(7)
 @qase.title("Login link redirects to Login page")
 def test_login_link(page: Page) -> None:
