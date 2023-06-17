@@ -1,9 +1,10 @@
 """Page object for fake email page"""
 
 from playwright.sync_api import Optional, Response
-from utils.create_unique_email import current_time_string, new_string
 
 EMAIL_URL = "https://www.fakemail.net"
+EMAIL_NAME = "Welcome to Boutiq!"
+TEST_STRING = "test"
 
 
 class FakeEmail:
@@ -20,12 +21,13 @@ class FakeEmail:
 
         self.email = page.locator("#email")
 
-        self.boutiq = page.get_by_role("cell", name="Welcome to Boutiq!")
+        self.email_cell_name = page.get_by_role("cell", name=EMAIL_NAME)
+
         self.email_title = page.frame_locator("#iframeMail").get_by_role(
-            "heading", name="Welcome to Boutiq!"
+            "heading", name=EMAIL_NAME
         )
 
-    def navigate_to_fake_email(self) -> Optional[Response]:
+    def navigate_to(self) -> Optional[Response]:
         """Method that opens the defined url"""
         return self.page.goto(EMAIL_URL)
 
@@ -33,7 +35,7 @@ class FakeEmail:
         """Method that modifies the current email"""
         self.edit_button.click()
         self.email_input.click()
-        self.email_input.type(current_time_string)
+        self.email_input.type(TEST_STRING)
         self.email_input.click()
-        self.email_input.type(new_string)
+        self.email_input.type(TEST_STRING)
         self.confirm_button.click()
