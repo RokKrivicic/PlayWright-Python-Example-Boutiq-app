@@ -35,8 +35,9 @@ jobs:
     - name: Lint the code
       run: pipenv run lint
     - name: Run test and send report to qase
-      run: pipenv run create-all-reports
+      run: pipenv run create-report
     - name: Archive results
+      if: ${{ always() }}
       uses: actions/upload-artifact@v3
       with:
         name: test-report

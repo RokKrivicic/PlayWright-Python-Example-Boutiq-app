@@ -13,4 +13,4 @@ def test_login_link(page: Page) -> None:
     registration = Registration(page)
     registration.navigate_to_registration()
     registration.link["login"].click()
-    expect(page).to_have_url(re.compile(".*login"))
+    expect(page).to_have_url(re.compile(".*login1"))
